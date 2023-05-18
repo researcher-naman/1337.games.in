@@ -1,16 +1,53 @@
 <%- include('partials/header'); -%>
+<style>
+  body {
+    background-color: #f8f9fa;
+  }
 
-<form>
-  <h2>Signup123</h2>
-  <label for="email">Email</label>
-  <input type="text" name="email" required />
-  <div class="email error"></div>
-  <label for="password">Password</label>
-  <input type="password" name="password" required />
-  <div class="password error"></div>
-  <button>Sign Up</button>
-</form>
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+  }
 
+  .login-form {
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+</style>
+
+<div class="login-container">
+  <div class="login-form">
+    <form>
+      <h2>SignUp</h2>
+      <div class="mb-3">
+        <label for="email" class="mb-3" class="form-control">Email</label>
+        <input
+          type="text"
+          name="email"
+          class="form-control"
+          required
+        />
+      </div>
+      <div class="email error"></div>
+      <div class="mb-3">
+        <label for="password" class="mb-3" class="form-control">Password</label>
+        <input
+          type="password"
+          name="password"
+          required
+          class="form-control"
+        />
+        <div class="password error"></div>
+      </div>
+      <button class="btn btn-primary">Sign Up</button>
+    </form>
+  </div>
+</div>
 <script>
   const form = document.querySelector("form");
   const emailerror = document.querySelector(".email.error");
@@ -25,25 +62,25 @@
 
     try {
       console.log(email, password);
-      const res =await fetch("/signup", {
+      const res = await fetch("/signup", {
         method: "POST",
         body: JSON.stringify({ email, password }),
-        headers: { "Content-Type": "application/json" }
+        headers: { "Content-Type": "application/json" },
       });
-      console.log("res",res);
+      console.log("res", res);
       const data = await res.json();
-      console.log("data",data);
+      console.log("data", data);
       let errorflag = false;
       if (data.email) {
         emailerror.innerText = data.email;
-        errorflag= true;
+        errorflag = true;
       }
       if (data.password) {
         passworderror.innerText = data.password;
-        errorflag=true;
+        errorflag = true;
       }
-      if(!errorflag){
-          location.assign('/'); 
+      if (!errorflag) {
+        location.assign("/");
       }
     } catch (e) {
       console.log(e);

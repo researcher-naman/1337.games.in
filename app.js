@@ -16,7 +16,8 @@ app.use(cookieParser());
 app.set('view engine', 'ejs');
 
 // database connection
-const dbURI = `mongodb+srv://ankit_git:${process.env.MONGODB_PASSWORD}@cluster0.mhfgtgs.mongodb.net/node-auth?retryWrites=true&w=majority`;
+// const dbURI = `mongodb+srv://ankit_git:${process.env.MONGODB_PASSWORD}@cluster0.mhfgtgs.mongodb.net/node-auth?retryWrites=true&w=majority`;
+const dbURI = `mongodb+srv://bhavyathakkar96:${process.env.MONGODB_PASSWORD}@cluster0.01nbbph.mongodb.net/?retryWrites=true&w=majority`;
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true })
   .then((result) => {
     app.listen(3000)})
@@ -27,3 +28,12 @@ app.get('*',checkUser)
 app.get('/', (req, res) => res.render('home'));
 app.get('/private',requireAuth, (req, res) => res.render('private'));
 app.use(authRouters);
+app.get('/dino',requireAuth,(req,res)=>{
+    res.render('index');
+});
+app.get('/menja',requireAuth,(req,res)=>{
+    res.render('menja');
+});
+app.get('/book',requireAuth,(req,res)=>{
+    res.render('book');
+});
