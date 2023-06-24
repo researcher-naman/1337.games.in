@@ -20,8 +20,9 @@ app.set('view engine', 'ejs');
 const dbURI = `mongodb+srv://bhavyathakkar96:${process.env.MONGODB_PASSWORD}@cluster0.01nbbph.mongodb.net/?retryWrites=true&w=majority`;
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true })
   .then((result) => {
-    app.listen(3000)})
+    app.listen(4000)})
   .catch((err) => console.log(err));
+    console.log("The server is now running on local port visit the http://localhost:4000/");
 
 // routes
 app.get('*',checkUser)
@@ -37,3 +38,30 @@ app.get('/menja',requireAuth,(req,res)=>{
 app.get('/book',requireAuth,(req,res)=>{
     res.render('book');
 });
+app.get('/plane',requireAuth,(req,res)=>{
+    res.render('plane');
+});
+app.get('/stack',requireAuth,(req,res)=>{
+    res.render('stack');
+});
+
+
+
+
+//
+app.get('/StickHero',requireAuth,(req,res)=>{
+    res.render('stickHero');
+});
+app.get('/Tetris',requireAuth,(req,res)=>{
+    res.render('Tetrisindex');
+});
+app.get('/highwayrace',requireAuth,(req,res)=>{
+    res.render('highwayindex');
+});
+app.get('/snake',requireAuth,(req,res)=>{
+    res.render('snakeindex');
+});
+app.get('/bounce',requireAuth,(req,res)=>{
+    res.render('bounceindex');
+});
+
