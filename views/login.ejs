@@ -1,27 +1,39 @@
 <%- include('partials/header'); -%>
 <style>
   body {
-    background-color: #f8f9fa;
+    background-color: #f8f9fa91;
+    background-image: url('backImg.jpeg');
   }
 
   .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 100vh;
   }
-
+  
   .login-form {
-    max-width: 400px;
+    margin-bottom: 170px;
+    width: 40%;
+    max-width: 50%;
     padding: 20px;
-    background-color: #fff;
+    background-color: transparent;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px 3px rgba(43, 43, 43, 0.228);
+    border: 1px solid gray;
+  }
+  .form-control {
+    background-color: transparent;
+  }
+  .btn-primary:hover {
+    background-color: #5de822fd;
+    border-color: #5de822fd;
+    color: black;
   }
 </style>
-<div class="login-container">
-  <div class="login-form">
-    <form>
+<div class="login-container ">
+  <div class="login-form text-light">
+    <form > 
       <h2>Login</h2>
       <div class="mb-3">
         <label for="email">Email</label>
@@ -39,13 +51,12 @@
 </div>
 <script>
   const form = document.querySelector("form");
-  const emailerror = document.querySelector(".email.error");
-  const passworderror = document.querySelector(".password.error");
+  const emailerror = document.querySelector("email.error");
+  const passworderror = document.querySelector("password .error");
 
   form.addEventListener("submit", async (e) => {
     console.log("request send");
     e.preventDefault();
-    emailerror.innerText = "";
     const email = form.email.value;
     const password = form.password.value;
 

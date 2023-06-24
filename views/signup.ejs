@@ -1,47 +1,50 @@
 <%- include('partials/header'); -%>
 <style>
-  body {
-    background-color: #f8f9fa;
+
+body {
+    background-color: #f8f9fa91;
+    background-image: url('backImg.jpeg');
   }
 
   .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 90vh;
+    height: 100vh;
   }
-
+  
   .login-form {
-    max-width: 400px;
+    margin-bottom: 170px;
+    width: 40%;
+    max-width: 50%;
     padding: 20px;
-    background-color: #fff;
+    background-color: transparent;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px 3px rgba(43, 43, 43, 0.228);
+    border: 1px solid gray;
+  }
+  .form-control {
+    background-color: transparent;
+  }
+  .btn-primary:hover {
+    background-color: #5de822fd;
+    border-color: #5de822fd;
+    color: black;
   }
 </style>
 
 <div class="login-container">
-  <div class="login-form">
+  <div class="login-form text-light">
     <form>
       <h2>SignUp</h2>
       <div class="mb-3">
-        <label for="email" class="mb-3" class="form-control">Email</label>
-        <input
-          type="text"
-          name="email"
-          class="form-control"
-          required
-        />
+        <label for="email" class="mb-3" class="form-control">Email :</label> 
+        <input type="text" name="email" class="form-control" required />
       </div>
       <div class="email error"></div>
       <div class="mb-3">
-        <label for="password" class="mb-3" class="form-control">Password</label>
-        <input
-          type="password"
-          name="password"
-          required
-          class="form-control"
-        />
+        <label for="password" class="mb-3" class="form-control">Password :</label>
+        <input type="password" name="password" required class="form-control" />
         <div class="password error"></div>
       </div>
       <button class="btn btn-primary">Sign Up</button>
